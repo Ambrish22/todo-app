@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Income Expense Tracker</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-100 min-h-screen flex flex-col items-center p-4">
+  <div class="w-full max-w-2xl bg-white shadow-lg rounded-lg p-6">
+    <!-- Header -->
+    <h1 class="text-2xl font-bold text-center mb-4">💰 Income & Expense Tracker</h1>
+
+    <!-- Summary -->
+    <div class="grid grid-cols-3 gap-4 text-center mb-6">
+      <div class="p-3 bg-green-100 rounded-lg">
+        <h3 class="text-sm font-semibold">Total Income</h3>
+        <p id="total-income" class="text-xl font-bold text-green-600">₹0</p>
+      </div>
+      <div class="p-3 bg-red-100 rounded-lg">
+        <h3 class="text-sm font-semibold">Total Expense</h3>
+        <p id="total-expense" class="text-xl font-bold text-red-600">₹0</p>
+      </div>
+      <div class="p-3 bg-blue-100 rounded-lg">
+        <h3 class="text-sm font-semibold">Net Balance</h3>
+        <p id="net-balance" class="text-xl font-bold text-blue-600">₹0</p>
+      </div>
+    </div>
+
+    <!-- Form -->
+    <form id="transaction-form" class="space-y-3 mb-4">
+      <input type="text" id="description" placeholder="Description" 
+        class="w-full p-2 border rounded" required>
+      <input type="number" id="amount" placeholder="Amount" 
+        class="w-full p-2 border rounded" required>
+      <div class="flex gap-4">
+        <label><input type="radio" name="type" value="income" checked> Income</label>
+        <label><input type="radio" name="type" value="expense"> Expense</label>
+      </div>
+      <div class="flex justify-between">
+        <button type="submit" class="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600">Add</button>
+        <button type="reset" class="bg-gray-400 text-white px-4 py-2 rounded hover:bg-gray-500">Reset</button>
+      </div>
+    </form>
+
+    <!-- Filters -->
+    <div class="flex gap-4 mb-4">
+      <label><input type="radio" name="filter" value="all" checked> All</label>
+      <label><input type="radio" name="filter" value="income"> Income</label>
+      <label><input type="radio" name="filter" value="expense"> Expense</label>
+    </div>
+
+    <!-- Transaction List -->
+    <ul id="transaction-list" class="divide-y"></ul>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
